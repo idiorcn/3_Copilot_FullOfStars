@@ -16,15 +16,44 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#price-chart {
-    width: 100%;
-    height: 300px;
-    background-color: #e0e0e0;
+.level-info {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chart-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
+#price-scale, #percentage-scale {
+    width: 50px;
+    height: 300px;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#price-chart {
+    width: calc(100% - 100px);
+    height: 300px;
+    background-color: #e0e0e0;
+    position: relative;
+}
+
 .info {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.player-info, .computer-info {
+    width: 45%;
 }
 
 .controls {

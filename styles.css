@@ -81,8 +81,17 @@ body {
     font-weight: bold;
 }
 
-#watch-ad-button {
+#watch-ad-button, #follow-gongzhonghao-button, #invite-friend-button {
     padding: 5px 10px;
     font-size: 16px;
     margin-left: 10px;
+}
+
+.qr-code {
+    margin-top: 20px;
+}
+
+.qr-code img {
+    width: 150px;
+    height: 150px;
 }

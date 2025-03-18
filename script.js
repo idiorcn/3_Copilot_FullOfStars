@@ -32,6 +32,8 @@ const challengeAttemptsElement = document.getElementById('challenge-attempts');
 const nextRecoveryTimeElement = document.getElementById('next-recovery-time');
 const additionalComputersElement = document.getElementById('additional-computers');
 const watchAdButton = document.getElementById('watch-ad-button');
+const followGongzhonghaoButton = document.getElementById('follow-gongzhonghao-button');
+const inviteFriendButton = document.getElementById('invite-friend-button');
 
 function updatePrice() {
     const change = (Math.random() - 0.5) * 10;
@@ -189,6 +191,18 @@ watchAdButton.addEventListener('click', () => {
         challengeAttempts++;
         challengeAttemptsElement.textContent = challengeAttempts;
     }, 30000);
+});
+
+followGongzhonghaoButton.addEventListener('click', () => {
+    alert('关注GrandMiracle公众号以增加一次挑战机会');
+    challengeAttempts++;
+    challengeAttemptsElement.textContent = challengeAttempts;
+});
+
+inviteFriendButton.addEventListener('click', () => {
+    alert('邀请好友关注GrandMiracle公众号以增加一次挑战机会');
+    challengeAttempts++;
+    challengeAttemptsElement.textContent = challengeAttempts;
 });
 
 buyButton.addEventListener('click', () => playerTrade('buy'));

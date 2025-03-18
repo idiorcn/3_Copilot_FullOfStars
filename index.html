@@ -25,13 +25,23 @@
                 <div>玩家当前盈利率: <span id="player-profit-rate">0%</span></div>
             </div>
             <div class="computer-info">
-                <div>电脑资金: <span id="computer-funds">5000000</span></div>
+                <div>电脑1资金: <span id="computer1-funds">5000000</span></div>
+                <div id="additional-computers" style="display: none;">
+                    <div>电脑2资金: <span id="computer2-funds">5000000</span></div>
+                    <div>电脑3资金: <span id="computer3-funds">5000000</span></div>
+                    <div>电脑4资金: <span id="computer4-funds">5000000</span></div>
+                    <div>电脑5资金: <span id="computer5-funds">5000000</span></div>
+                </div>
             </div>
         </div>
         <div class="controls">
             <input type="number" id="stock-amount" min="100" step="100" value="100">
             <button id="buy-button">买入</button>
             <button id="sell-button">卖出</button>
+        </div>
+        <div class="challenge-info">
+            <div>挑战机会: <span id="challenge-attempts">3</span> <button id="watch-ad-button">+</button></div>
+            <div>下次恢复时间: <span id="next-recovery-time">--:--:--</span></div>
         </div>
     </div>
     <script src="script.js"></script>

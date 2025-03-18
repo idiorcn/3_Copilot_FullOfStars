@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满天星股票交易游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>满天星股票交易游戏</h1>
+        <div id="price-chart"></div>
+        <div class="info">
+            <div>玩家资金: <span id="player-funds">5000000</span></div>
+            <div>玩家股票: <span id="player-stocks">0</span></div>
+            <div>玩家持仓市值: <span id="player-stock-value">0</span></div>
+            <div>电脑资金: <span id="computer-funds">5000000</span></div>
+        </div>
+        <div class="controls">
+            <input type="number" id="stock-amount" min="100" step="100" value="100">
+            <button id="buy-button">买入</button>
+            <button id="sell-button">卖出</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,15 +3,23 @@ let computerFunds = 5000000;
 let playerStocks = 0;
 let stockPrice = 100;
 let priceHistory = [stockPrice];
+let level = 1;
+const levelGoals = [10000]; // Add more levels as needed
 
 const playerFundsElement = document.getElementById('player-funds');
 const computerFundsElement = document.getElementById('computer-funds');
 const playerStocksElement = document.getElementById('player-stocks');
 const playerStockValueElement = document.getElementById('player-stock-value');
+const playerProfitElement = document.getElementById('player-profit');
+const playerProfitRateElement = document.getElementById('player-profit-rate');
 const priceChartElement = document.getElementById('price-chart');
 const buyButton = document.getElementById('buy-button');
 const sellButton = document.getElementById('sell-button');
 const stockAmountInput = document.getElementById('stock-amount');
+const levelElement = document.getElementById('level');
+const priceScaleElement = document.getElementById('price-scale');
+const percentageScaleElement = document.getElementById('percentage-scale');
+const realTimePriceElement = document.getElementById('real-time-price');
 
 function updatePrice() {
     const change = (Math.random() - 0.5) * 10;
@@ -22,6 +30,7 @@ function updatePrice() {
     }
     drawChart();
     updatePlayerStockValue();
+    realTimePriceElement.textContent = stockPrice.toFixed(2);
 }
 
 function drawChart() {
@@ -42,6 +51,22 @@ function drawChart() {
     ctx.strokeStyle = '#4caf50';
     ctx.stroke();
     priceChartElement.appendChild(canvas);
+    drawScales(minPrice, maxPrice);
+}
+
+function drawScales(minPrice, maxPrice) {
+    priceScaleElement.innerHTML = '';
+    percentageScaleElement.innerHTML = '';
+    for (let i = 0; i <= 10; i++) {
+        const price = minPrice + (i * (maxPrice - minPrice)) / 10;
+        const percentage = ((price - stockPrice) / stockPrice) * 100;
+        const priceLabel = document.createElement('div');
+        priceLabel.textContent = price.toFixed(2);
+        priceScaleElement.prepend(priceLabel);
+        const percentageLabel = document.createElement('div');
+        percentageLabel.textContent = percentage.toFixed(2) + '%';
+        percentageScaleElement.prepend(percentageLabel);
+    }
 }
 
 function computerTrade() {
@@ -73,6 +98,10 @@ function playerTrade(action) {
 function updatePlayerStockValue() {
     const stockValue = playerStocks * stockPrice;
     playerStockValueElement.textContent = stockValue;
+    const profit = stockValue + playerFunds - 5000000;
+    playerProfitElement.textContent = profit.toFixed(2);
+    const profitRate = (profit / 5000000) * 100;
+    playerProfitRateElement.textContent = profitRate.toFixed(2) + '%';
 }
 
 function checkGameOver() {
@@ -82,6 +111,9 @@ function checkGameOver() {
         resetGame();
     } else if (computerFunds < 10000) {
         alert('玩家赢了！');
+        resetGame();
+    } else if (totalValue >= 5000000 + levelGoals[level - 1]) {
+        alert('玩家完成了当前关卡！');
         resetGame();
     }
 }
@@ -96,6 +128,9 @@ function resetGame() {
     computerFundsElement.textContent = computerFunds;
     playerStocksElement.textContent = playerStocks;
     playerStockValueElement.textContent = 0;
+    playerProfitElement.textContent = 0;
+    playerProfitRateElement.textContent = '0%';
+    realTimePriceElement.textContent = stockPrice.toFixed(2);
     drawChart();
 }
 

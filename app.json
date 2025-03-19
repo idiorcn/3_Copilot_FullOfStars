@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "满天星股票交易游戏",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -9,17 +9,44 @@
 <body>
     <div class="container">
         <h1>满天星股票交易游戏</h1>
-        <div id="price-chart"></div>
+        <div class="level-info">关卡: <span id="level">小试牛刀</span> - 目标: 盈利10000块</div>
+        <div class="chart-container">
+            <div id="price-scale"></div>
+            <div id="price-chart"></div>
+            <div id="percentage-scale"></div>
+        </div>
         <div class="info">
-            <div>玩家资金: <span id="player-funds">5000000</span></div>
-            <div>玩家股票: <span id="player-stocks">0</span></div>
-            <div>玩家持仓市值: <span id="player-stock-value">0</span></div>
-            <div>电脑资金: <span id="computer-funds">5000000</span></div>
+            <div class="player-info">
+                <div>实时价格: <span id="real-time-price">100</span></div>
+                <div>玩家资金: <span id="player-funds">5000000</span></div>
+                <div>玩家股票: <span id="player-stocks">0</span></div>
+                <div>玩家持仓市值: <span id="player-stock-value">0</span></div>
+                <div>玩家当前盈利: <span id="player-profit">0</span></div>
+                <div>玩家当前盈利率: <span id="player-profit-rate">0%</span></div>
+            </div>
+            <div class="computer-info">
+                <div>电脑1资金: <span id="computer1-funds">5000000</span></div>
+                <div id="additional-computers" style="display: none;">
+                    <div>电脑2资金: <span id="computer2-funds">5000000</span></div>
+                    <div>电脑3资金: <span id="computer3-funds">5000000</span></div>
+                    <div>电脑4资金: <span id="computer4-funds">5000000</span></div>
+                    <div>电脑5资金: <span id="computer5-funds">5000000</span></div>
+                </div>
+            </div>
         </div>
         <div class="controls">
             <input type="number" id="stock-amount" min="100" step="100" value="100">
             <button id="buy-button">买入</button>
             <button id="sell-button">卖出</button>
+        </div>
+        <div class="challenge-info">
+            <div>挑战机会: <span id="challenge-attempts">3</span> <button id="watch-ad-button">+</button> <button id="follow-gongzhonghao-button">+</button></div>
+            <div>下次恢复时间: <span id="next-recovery-time">--:--:--</span></div>
+            <div><button id="invite-friend-button">邀请好友关注GrandMiracle公众号</button></div>
+            <div class="qr-code">
+                <p>扫码或识别下面的二维码关注GrandMiracle公众号</p>
+                <img src="qrcode.bmp" alt="GrandMiracle QR Code">
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

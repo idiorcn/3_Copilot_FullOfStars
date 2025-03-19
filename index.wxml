@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">满天星股票交易游戏</view>
+  <view class="level-info">关卡: {{level}} - 目标: 盈利{{levelGoals[level-1]}}块</view>
+  <view class="chart-container">
+    <canvas canvas-id="price-chart" style="width: 300px; height: 300px;"></canvas>
+    <view class="price-scale">
+      <view wx:for="{{priceScale}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="percentage-scale">
+      <view wx:for="{{percentageScale}}" wx:key="index">{{item}}</view>
+    </view>
+  </view>
+  <view class="info">
+    <view class="player-info">
+      <view>实时价格: {{stockPrice}}</view>
+      <view>玩家资金: {{playerFunds}}</view>
+      <view>玩家股票: {{playerStocks}}</view>
+      <view>玩家持仓市值: {{playerStockValue}}</view>
+      <view>玩家当前盈利: {{playerProfit}}</view>
+      <view>玩家当前盈利率: {{playerProfitRate}}</view>
+    </view>
+    <view class="computer-info">
+      <view>电脑1资金: {{computerFunds[0]}}</view>
+      <view wx:if="{{additionalComputersVisible}}">
+        <view>电脑2资金: {{computerFunds[1]}}</view>
+        <view>电脑3资金: {{computerFunds[2]}}</view>
+        <view>电脑4资金: {{computerFunds[3]}}</view>
+        <view>电脑5资金: {{computerFunds[4]}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="controls">
+    <input type="number" bindinput="updateStockAmount" value="{{stockAmount}}" />
+    <button bindtap="playerTrade" data-action="buy">买入</button>
+    <button bindtap="playerTrade" data-action="sell">卖出</button>
+  </view>
+  <view class="challenge-info">
+    <view>挑战机会: {{challengeAttempts}} 
+      <button bindtap="watchAd">+</button>
+      <button bindtap="followGongzhonghao">+</button>
+    </view>
+    <view>下次恢复时间: {{nextRecoveryTimeText}}</view>
+    <button bindtap="inviteFriend">邀请好友关注GrandMiracle公众号</button>
+    <view class="qr-code">
+      <text>扫码或识别下面的二维码关注GrandMiracle公众号</text>
+      <image src="/images/qrcode.bmp" mode="aspectFit"></image>
+    </view>
+  </view>
+</view>
